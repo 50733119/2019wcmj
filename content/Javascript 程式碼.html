@@ -78,89 +78,90 @@ $(document).ready(doSearch);
 
 </ul>
 </confmenu></header>
-<div class='container'><nav><ul id='css3menu1' class='topmenu'><div class="tipue_search_group"><input style="width: 6vw;" type="text" name="q" id="tipue_search_input" pattern=".{2,}" title="Press enter key to search" required></div><li><a href='簡介.html'>簡介</a><li><a href='目錄結構.html'>目錄結構</a><li><a href='頁面編輯.html'>頁面編輯</a><ul><li><a href='插入程式碼.html'>插入程式碼</a><ul><li><a href='Java 程式碼.html'>Java 程式碼</a><li><a href='Python 程式碼.html'>Python 程式碼</a><li><a href='C或C++程式碼.html'>C或C++程式碼</a><li><a href='Lua 程式碼.html'>Lua 程式碼</a><li><a href='Javascript 程式碼.html'>Javascript 程式碼</a><li><a href='Html 原始碼.html'>Html 原始碼</a></li></li></ul></ul><li><a href='網際簡報.html'>網際簡報</a><li><a href='網誌編輯.html'>網誌編輯</a><li><a href='已知錯誤.html'>已知錯誤</a><li><a href='期中報告影片.html'>期中報告影片</a></li></ul></nav><section><div id="tipue_search_content">Lua 程式碼 << <a href='Lua 程式碼.html'>Previous</a> <a href='Html 原始碼.html'>Next</a> >> Html 原始碼<br /><h1>Javascript 程式碼</h1>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">STLViewer = function(stlpath, plotarea) {
-
-	var mycanvas = document.getElementById(plotarea);
-	var viewer = new JSC3D.Viewer(mycanvas)
-	var theScene = new JSC3D.Scene;
-	////Initialize with a default file:
-	//var stlpath = "../../../assets/2013-10-23/stl/box.STL"
-	//var stlpath = "../../../assets/2013-10-23/stl/taj.stl"
-	viewer.setParameter('SceneUrl', stlpath);
-    viewer.setParameter('InitRotationX', 20);
-	viewer.setParameter('InitRotationY', 20);
-	viewer.setParameter('InitRotationZ', 0);
-	viewer.setParameter('ModelColor', '#CAA618');
-	viewer.setParameter('BackgroundColor1', '#FFFFFF');
-	viewer.setParameter('BackgroundColor2', '#383840');
-	viewer.init();
-	viewer.update();
-	////init done
-	var canvas_drop = document.getElementById('canvas-drop')
-	/*var dropzone = document.getElementById('dropzone')
-	dropzone.addEventListener('dragover', handleDragOver, false);
-	dropzone.addEventListener('drop', handleFileSelect, false); */
-	canvas_drop.addEventListener('dragover', handleDragOver, false);
-	canvas_drop.addEventListener('drop', handleFileSelect, false);
-
-////Drag and drop logic:
-	function handleFileSelect(evt) {
-	    evt.stopPropagation();
-	    evt.preventDefault();
-	    var files = evt.dataTransfer.files;
-	    console.log(evt)
-	    console.log(files)
-	    preview_stl(files[0])
-	  }
-
-	  function handleDragOver(evt) {
-	    evt.stopPropagation();
-	    evt.preventDefault();
-	    evt.dataTransfer.dropEffect = 'copy';
-	  }
-
-////jsc3d logic
-	var handle_file_select = function(e) {
-		e.stopPropagation()
-		e.preventDefault()
-		var f = e.target.files[0]
-		preview_stl(f)
-	}
-
-	function preview_stl(f) {
-		var reader = new FileReader()
-		var ext = f.name.split(".")[1]
-
-		function setup_viewer() {
-			viewer.setParameter('InitRotationX', 20);
-			viewer.setParameter('InitRotationY', 20);
-			viewer.setParameter('InitRotationZ', 0);
-			viewer.setParameter('ModelColor', '#CAA618');
-			viewer.setParameter('BackgroundColor1', '#FFFFFF');
-			viewer.setParameter('BackgroundColor2', '#383840');
-			viewer.setParameter('RenderMode', "flat");
-		}
-		setup_viewer()
-
-		reader.onload = (function(file) {
-			return function(e) {
-				theScene = new JSC3D.Scene
-		    	stl_loader = new JSC3D.StlLoader()
-		    	stl_loader.parseStl(theScene, e.target.result)
-		      	//viewer.init()
-		      	viewer.replaceScene(theScene)
-		      	viewer.update()
-		      	console.log("file reader onload")
-			}
-		})(f)
-
-		if (ext.toLowerCase() != "stl") {
-			alert("That doesn't appear to be an STL file.");
-		} else {
-			reader.readAsBinaryString(f)
-		}
-	}
-}
+<div class='container'><nav><ul id='css3menu1' class='topmenu'><div class="tipue_search_group"><input style="width: 6vw;" type="text" name="q" id="tipue_search_input" pattern=".{2,}" title="Press enter key to search" required></div><li><a href='簡介.html'>簡介</a><li><a href='目錄結構.html'>目錄結構</a><li><a href='頁面編輯.html'>頁面編輯</a><ul><li><a href='插入程式碼.html'>插入程式碼</a><ul><li><a href='Java 程式碼.html'>Java 程式碼</a><li><a href='Python 程式碼.html'>Python 程式碼</a><li><a href='C或C++程式碼.html'>C或C++程式碼</a><li><a href='Lua 程式碼.html'>Lua 程式碼</a><li><a href='Javascript 程式碼.html'>Javascript 程式碼</a><li><a href='Html 原始碼.html'>Html 原始碼</a></li></li></ul></ul><li><a href='網際簡報.html'>網際簡報</a><li><a href='網誌編輯.html'>網誌編輯</a><li><a href='已知錯誤.html'>已知錯誤</a><li><a href='期中報告影片.html'>期中報告影片</a><li><a href='按一下.html'>按一下</a></li></ul></nav><section><div id="tipue_search_content">Lua 程式碼 << <a href='Lua 程式碼.html'>Previous</a> <a href='Html 原始碼.html'>Next</a> >> Html 原始碼<br /><h1>Javascript 程式碼</h1>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">STLViewer = function（stlpath，plotarea）{</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	var mycanvas = document.getElementById（plotarea）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	var viewer = new JSC3D.Viewer（mycanvas）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	var theScene = new JSC3D.Scene;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	////使用默認文件初始化：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	// var stlpath =“../../../assets/2013-10-23/stl/box.STL”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	// var stlpath =“../../../assets/2013-10-23/stl/taj.stl”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'SceneUrl'，stlpath）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    viewer.setParameter（'InitRotationX'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'InitRotationY'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'InitRotationZ'，0）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'ModelColor'，'＃CAA618'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'BackgroundColor1'，'＃FFFFFF'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.setParameter（'BackgroundColor2'，'＃383840'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.init（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	viewer.update（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	////完成初始化</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	var canvas_drop = document.getElementById（'canvas-drop'）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	/ * var dropzone = document.getElementById（'dropzone'）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	dropzone.addEventListener（'dragover'，handleDragOver，false）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	dropzone.addEventListener（'drop'，handleFileSelect，false）; </span><span style="vertical-align: inherit;">* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	canvas_drop.addEventListener（'dragover'，handleDragOver，false）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	canvas_drop.addEventListener（'drop'，handleFileSelect，false）;</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+////拖放邏輯：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	function handleFileSelect（evt）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    evt.stopPropagation（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    evt.preventDefault（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    var files = evt.dataTransfer.files;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    執行console.log（EVT）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    執行console.log（文件）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    preview_stl（文件[0]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	  }</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	  function handleDragOver（evt）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    evt.stopPropagation（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    evt.preventDefault（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	    evt.dataTransfer.dropEffect ='copy';</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	  }</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+//// jsc3d邏輯</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	var handle_file_select = function（e）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		e.stopPropagation（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		e.preventDefault（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		var f = e.target.files [0]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		preview_stl（f）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	function preview_stl（f）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		var reader = new FileReader（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		var ext = f.name.split（“。”）[1]</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		function setup_viewer（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'InitRotationX'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'InitRotationY'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'InitRotationZ'，0）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'ModelColor'，'＃CAA618'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'BackgroundColor1'，'＃FFFFFF'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'BackgroundColor2'，'＃383840'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			viewer.setParameter（'RenderMode'，“flat”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		setup_viewer（）</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		reader.onload =（function（file）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			返回函數（e）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+				theScene =新的JSC3D.Scene</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		    	stl_loader = new JSC3D.StlLoader（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		    	stl_loader.parseStl（theScene，e.target.result）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		      	//viewer.init（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		      	viewer.replaceScene（theScene）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		      	viewer.update（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		      	console.log（“文件閱讀器onload”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		}）（F）</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		if（ext.toLowerCase（）！=“stl”）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			alert（“那似乎不是一個STL文件。”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		} else {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+			reader.readAsBinaryString（F）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+		}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+	}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
 </pre>
-<p></p><br />Lua 程式碼 << <a href='Lua 程式碼.html'>Previous</a> <a href='Html 原始碼.html'>Next</a> >> Html 原始碼</div></section></div></body></html>
+<p></p>
+<br />Lua 程式碼 << <a href='Lua 程式碼.html'>Previous</a> <a href='Html 原始碼.html'>Next</a> >> Html 原始碼</div></section></div></body></html>
