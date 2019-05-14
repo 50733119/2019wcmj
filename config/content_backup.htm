@@ -1,463 +1,305 @@
 <h1>簡介</h1>
+<p>首先是這個衝突 (這是新版本內容)</p>
+<p>終於要來處理衝突了 (這是產生衝突的舊版本內容)</p>
 <p>CMSimfly (<a href="https://github.com/chiamingyen/cmsimfly">https://github.com/chiamingyen/cmsimfly)</a> 是一套簡單的網際內容管理系統, 採用 Flask 網際框架, 以 Beautifulsoup 解讀分頁內容.</p>
 <p><img alt="" height="471" src="/images/gocycle4.png" width="587"/></p>
+<h1>week1</h1>
+<p>學習如何一次上傳多個圖檔, 並且學會如何引用, 並且設定圖片大小.</p>
+<p><img alt="" height="471" src="/images/gocycle4.png" width="587"/></p>
+<p></p>
+<h1>week2</h1>
+<p>網路與電腦程式只是工具, 任何人希望與遠端的系統或成員溝通, 可以使用網路.</p>
+<p>任何人想要利用電腦的能力解決問題, 就必須學會編寫電腦程式, 與電腦溝通.</p>
+<p></p>
+<h1>week3</h1>
+<p>根據 <a href="https://2019wcm.blogspot.com/2019/03/ungit.html">https://2019wcm.blogspot.com/2019/03/ungit.html</a> 的設定, 完成 ungit 配置.</p>
+<h1>git http 與 ssh</h1>
+<p>利用 ssh 對 git 改版, 必須使用  home/.ssh/config 設定, 才能透過 proxy 伺服器進行連線, 由於在 IPv6 環境下, 必須要透過 proxy 才能對 Git 連線, 因此若無 config, 無法對遠端改版</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ProxyCommand y:/PortableGit/mingw64/bin/connect.exe -H 140.130.17.53:3128 %h %p
+
+Host github.com
+User git
+Port 22
+Hostname github.com
+
+IdentityFile "y:\home\.ssh\id_rsa"
+
+TCPKeepAlive yes
+IdentitiesOnly yes
+
+Host ssh.github.com
+User git
+Port 443
+Hostname ssh.github.com
+
+IdentityFile "y:\home\.ssh\id_rsa"
+
+TCPKeepAlive yes
+IdentitiesOnly yes</pre>
 <h1>目錄結構</h1>
+<p>第二位想要編輯這裡</p>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/9A-hg32eD-s" width="560"></iframe></p>
 <p>CMSimfly 的動態系統採用 Python3 + Flask 建構, 並且利用 Beatifulsoup 解讀位於 contig 目錄中的 content.htm 超文件檔案.</p>
 <p>content.htm 檔案可以透過動態系統中的 generate_pages 功能, 將超文件轉為位於 content 目錄中的個別頁面檔案.</p>
 <p>動態系統與靜態系統則共用 downloads, images, static 等目錄, 其中 downloads 目錄存放在動態系統上傳的文件檔, 而 images 目錄則存放動態系統所上傳的影像檔案, 包括 jpg, png 與 gif 等格式圖檔.</p>
 <p>static 目錄則存放在動態與靜態系統所需要的 Javascript 或 Brython 程式檔.</p>
+<p>還有這裡</p>
+<p>首先修改這裡</p>
+<p></p>
 <h1>頁面編輯</h1>
 <p>CMSimfly 動態系統的網際編輯器採用 <a href="https://www.tiny.cloud/">TinyMCE4</a>, 可以放入一般超文件,  納入圖檔, 嵌入影片連結, 並且加入帶有行數的原始碼.</p>
 <p>透過 File Upload 功能, 可以一次上傳多個檔案,  存入 downloads 目錄中儲存, 之後各頁面可以引入對應連結.</p>
 <p>而圖檔的上傳與引用與一般檔案類似, 但上傳後存入 images 目錄中.</p>
 <h2>插入程式碼</h2>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">CMSimfly 目前使用Syntaxhighlighter 3.0.83:</span></span></p>
-<p> <a href="http://alexgorbatchev.com/SyntaxHighlighter/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">http://alexgorbatchev.com/SyntaxHighlighter/</span></span></a> </p>
+<p>CMSimfly 目前使用 Syntaxhighlighter 3.0.83:</p>
+<p> <a href="http://alexgorbatchev.com/SyntaxHighlighter/">http://alexgorbatchev.com/SyntaxHighlighter/</a> </p>
 <p>進行頁面中的程式碼高亮顯示.</p>
 <h3>Java 程式碼</h3>
-<pre class="brush:java;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">import java.util.Scanner;</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-公共課生活{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    public static void show（boolean [] [] grid）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        String s =“”;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        for（boolean [] row：grid）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            for（boolean val：row）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                如果（VAL）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    s + =“*”;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                其他</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    s + =“。”;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            s + =“\ n”;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        的System.out.println（一個或多個）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-    <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    public static boolean [] [] gen（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        boolean [] [] grid = new boolean [10] [10];</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        for（int r = 0; r &lt;10; r ++）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            for（int c = 0; c &lt;10; c ++）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                if（Math.random（）&gt; 0.7）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    grid [r] [c] = true;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        返回網格;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-    <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    public static void main（String [] args）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        boolean [] [] world = gen（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        節目（世界）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        的System.out.println（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        world = nextGen（world）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        節目（世界）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        掃描儀s =新掃描儀（System.in）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        while（s.nextLine（）。length（）== 0）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            的System.out.println（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            world = nextGen（world）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            節目（世界）;</span></span><span></span>
-            <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-    <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    public static boolean [] [] nextGen（boolean [] [] world）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        boolean [] [] newWorld </span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            = new boolean [world.length] [world [0] .length];</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        int num;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        for（int r = 0; r &lt;world.length; r ++）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            for（int c = 0; c &lt;world [0] .length; c ++）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                num = numNeighbors（world，r，c）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                if（occupiedNext（num，world [r] [c]））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    newWorld [r] [c] = true;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        返回newWorld;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-    <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    public static boolean occupiedNext（int numNeighbors，boolean occupied）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        if（佔用&amp;&amp;（numNeighbors == 2 || numNeighbors == 3））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            返回true;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        否則if（！occupied &amp;&amp; numNeighbors == 3）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            返回true;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        其他</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            返回false;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    private static int numNeighbors（boolean [] [] world，int row，int col）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        int num = world [row] [col]？</span><span style="vertical-align: inherit;">-1：0;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        for（int r = row  -  1; r &lt;= row + 1; r ++）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            for（int c = col  -  1; c &lt;= col + 1; c ++）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                if（inbounds（world，r，c）&amp;&amp; world [r] [c]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    num ++;</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        當然回報;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    private static boolean inbounds（boolean [] [] world，int r，int c）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        return r&gt; = 0 &amp;&amp; r &lt;world.length &amp;&amp; c&gt; = 0 &amp;&amp;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        c &lt;world [0] .length;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    }</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span></pre>
-<p></p>
-<h3>Python 程式碼</h3>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">def parse_content（）：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    msgstr“”“使用bs4和re模塊函數來解析content.htm”“”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    #from pybean import Store，SQLiteWriter</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    #if no content.db，用cms表創建數據庫文件</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    '''</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果不是os.path.isfile（config_dir +“content.db”）：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        library = Store（SQLiteWriter（config_dir +“content.db”，frozen = False））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        cms = library.new（“cms”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        cms.follow = 0</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        cms.title =“頭1”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        cms.content =“內容1”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        cms.memo =“第一份備忘錄”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        library.save（CMS）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        library.commit（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    '''</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    #if if content.htm，生成head 1和content 1文件</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果不是os.path.isfile（config_dir +“content.htm”）：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        如果沒有content.htm，則＃create content.htm</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File = open（config_dir +“content.htm”，“w”，encoding =“utf-8”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File.write（“&lt;h1&gt; head 1 &lt;/ h1&gt; content 1”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File.close（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    subject = file_get_contents（config_dir +“content.htm”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃處理沒有內容的內容</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果主題==“”：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        如果沒有content.htm，則＃create content.htm</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File = open（config_dir +“content.htm”，“w”，encoding =“utf-8”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File.write（“&lt;h1&gt; head 1 &lt;/ h1&gt; content 1”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        File.close（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        subject =“&lt;h1&gt; head 1 &lt;/ h1&gt; content 1”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃初始化返回列表</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    head_list = []</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    level_list = []</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    page_list = []</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃從html內容中製作湯</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    湯= bs4.BeautifulSoup（主題，'html.parser'）</span></span><span></span>
-    # 嘗試解讀各種情況下的標題<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    湯= _remove_h123_attrs（湯）</span></span><span></span>
-    # 改寫 content.htm 後重新取 subject<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    使用open（config_dir +“content.htm”，“wb”）作為f：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        f.write（soup.encode（“UTF-8”））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    subject = file_get_contents（config_dir +“content.htm”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃將所有h1，h2，h3標籤放入列表中</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    htag = soup.find_all（['h1'，'h2'，'h3']）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    n = len（htag）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃使用每個h標籤獲取要分割主題的頁面內容</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    temp_data = subject.split（str（htag [0]））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果len（temp_data）&gt; 2：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        subject = str（htag [0]）。join（temp_data [1：]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    其他：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        subject = temp_data [1]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果n&gt; 1：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            #i從1到i-1</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            對於範圍內的i（1，len（htag））：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                head_list.append（htag [I-1] .text.strip（））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                ＃使用h * tag的name屬性來獲取h1，h2或h3</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                #h1，h2或h3的數量是頁面菜單的級別</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                level_list.append（htag [I-1]。名稱[1]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                temp_data = subject.split（str（htag [i]））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                如果len（temp_data）&gt; 2：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    subject = str（htag [i]）。join（temp_data [1：]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                其他：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                    subject = temp_data [1]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                ＃將htag中的其他頁面內容從1切換到i-1</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                cut = temp_data [0]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                ＃添加頁面內容</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                page_list.append（切）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    #last i</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃添加最後一頁標題</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    head_list.append（htag [N-1] .text.strip（））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃添加最後一個級別</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    level_list.append（htag [N-1]。名稱[1]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    temp_data = subject.split（str（htag [n-1]））</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃最後一個主題</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    subject = temp_data [0]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃剪掉最後一頁內容</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    cut = temp_data [0]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    ＃最後一頁內容</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    page_list.append（切）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    return head_list，level_list，page_list</span></span><span></span>
-<span></span>
-</pre>
-<p></p>
-<h3>C或C++程式碼</h3>
-<p>請注意, 目前 CMSimfly 標題內文無法解讀 "/" 符號, 因此若本頁面的標題為  "C/C++程式碼", 則無法進行分頁.</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">/ * Runge Kutta為一組一階微分方程* /</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;stdio.h&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;math.h&gt;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#define N 2 / *一階方程的數量* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#define dist 0.1 / * stepize in t * /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#define MAX 30.0 / * max for t * /</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-FILE *輸出; </span><span style="vertical-align: inherit;">/ *內部文件名* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-FILE * output1; </span><span style="vertical-align: inherit;">/ *內部文件名* /</span></span><span></span>
-// 利用 pipe 呼叫 gnuplot 繪圖<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-文件*管道;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void runge4（double x，double y []，double step）; </span><span style="vertical-align: inherit;">/ * Runge-Kutta功能* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-double f（double x，double y []，int i）; </span><span style="vertical-align: inherit;">/ *衍生函數* /</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void main（）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  double t，y [N];</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  int j;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  output = fopen（“osc.dat”，“w”）; </span><span style="vertical-align: inherit;">/ *外部文件名* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  output1 = fopen（“osc1.dat”，“w”）; </span><span style="vertical-align: inherit;">/ *外部文件名* /</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  Y [0] = 1.0; </span><span style="vertical-align: inherit;">/* 初始位置 */</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  Y [1] = 0.0; </span><span style="vertical-align: inherit;">/* 初始速度 */</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  // fprintf（輸出，“0 \ t％f \ n”，y [0]）;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（j = 1; j * dist &lt;= MAX; j ++）/ * time loop * / {</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    噸= j的* DIST;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    runge4（t，y，dist）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    fprintf（輸出，“％f \ t％f \ n”，t，y [0]）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    fprintf（output1，“％f \ t％f \ n”，t，y [1]）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  FCLOSE（輸出）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  FCLOSE（OUTPUT1）;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  pipe = popen（“gnuplot -persist”，“w”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  // fprintf（pipe，“set term png enhanced font”v：/fireflysung.ttf \“18 \ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  fprintf（pipe，“set term png enhanced font”y：/wqy-microhei.ttc \“18 \ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  // fprintf（pipe，“set yrange [68:70] \ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  fprintf（pipe，“set output \”test.png \“\ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  fprintf（管道，“plot \”osc.dat \“title \”位移\“用行，\”osc1.dat \“title \”速度\“用行\ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  fprintf中（管，“退出\ n”）;</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  fprintf中（管，“退出\ n”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  pclose函數（管道）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void runge4（double x，double y []，double step）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  double h = step / 2.0，/ *中點* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  t1 [N]，t2 [N]，t3 [N]，/ *臨時存儲陣列* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  k1 [N]，k2 [N]，k3 [N]，k4 [N]; </span><span style="vertical-align: inherit;">/ *為Runge-Kutta * /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  int i;</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（i = 0; i &lt;N; i ++）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    T1 [I] = Y [I] + 0.5 *（K1 [I] = *步驟F（X，Y，I））;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（i = 0; i &lt;N; i ++）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    t2 [i] = y [i] + 0.5 *（k2 [i] = step * f（x + h，t1，i））;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（i = 0; i &lt;N; i ++）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    t3 [i] = y [i] +（k3 [i] = step * f（x + h，t2，i））;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（i = 0; i &lt;N; i ++）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    k4 [i] = step * f（x + step，t3，i）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  for（i = 0; i &lt;N; i ++）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    值Y [i] + =（K1 [1] + 2 * K 2 [I] + 2 * K 3 [I] + K4 [I]）/ 6.0;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-double f（double x，double y []，int i）{</span></span><span></span>
- <span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  if（i == 0）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    X = Y [1]; </span><span style="vertical-align: inherit;">/ *第一個等式的衍生物* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  if（i == 1）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    x = -y [0] -0.5 *和[1];</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-  返回x;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span></pre>
-<p></p>
-<h3>Lua 程式碼</h3>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">-- 導入 js 模組<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-js = require（“js”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
--- 取得window</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-window = js.global</span></span><span></span>
--- 猜小於或等於 n 的整數<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-大= 100</span></span><span></span>
--- 計算猜測次數, 配合 while 至少會猜一次<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-num = 1</span></span><span></span>
--- 利用 window:prompt 方法回應取得使用者所猜的整數<span></span>
-guess = window:prompt("請猜一個介於 1 到 "..big.." 的整數")<span></span>
--- 利用數學模組的 random 函數以亂數產生答案<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-answer = math.random（大）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-output =“”</span></span><span></span>
--- 若沒猜對, 一直猜到對為止<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-而回答〜= tonumber（猜測）做</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    如果回答&gt; tonumber（猜測）那麼</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        output =“猜第”..num ..“次，猜=”..猜..“，答案=”......答案..“ - 太小了”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        打印（輸出）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    其他</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        output =“猜第”..num ..“次，猜=”..猜..“，答案=”......答案..“ - 太大了”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        打印（輸出）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    結束 </span></span><span></span>
-    guess = window:prompt(output..", 請猜一個介於 1 到 "..big.." 的整數")<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    NUM = NUM + 1</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-結束</span></span><span></span>
-print("總共猜了 "..num.." 次, answer=guess="..answer.." - correct")<span></span>
-    </pre>
-<p></p>
-<h3>Javascript 程式碼</h3>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">STLViewer = function（stlpath，plotarea）{</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	var mycanvas = document.getElementById（plotarea）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	var viewer = new JSC3D.Viewer（mycanvas）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	var theScene = new JSC3D.Scene;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	////使用默認文件初始化：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	// var stlpath =“../../../assets/2013-10-23/stl/box.STL”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	// var stlpath =“../../../assets/2013-10-23/stl/taj.stl”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'SceneUrl'，stlpath）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    viewer.setParameter（'InitRotationX'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'InitRotationY'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'InitRotationZ'，0）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'ModelColor'，'＃CAA618'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'BackgroundColor1'，'＃FFFFFF'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.setParameter（'BackgroundColor2'，'＃383840'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.init（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	viewer.update（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	////完成初始化</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	var canvas_drop = document.getElementById（'canvas-drop'）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	/ * var dropzone = document.getElementById（'dropzone'）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	dropzone.addEventListener（'dragover'，handleDragOver，false）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	dropzone.addEventListener（'drop'，handleFileSelect，false）; </span><span style="vertical-align: inherit;">* /</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	canvas_drop.addEventListener（'dragover'，handleDragOver，false）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	canvas_drop.addEventListener（'drop'，handleFileSelect，false）;</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-////拖放邏輯：</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	function handleFileSelect（evt）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    evt.stopPropagation（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    evt.preventDefault（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    var files = evt.dataTransfer.files;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    執行console.log（EVT）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    執行console.log（文件）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    preview_stl（文件[0]）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	  }</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	  function handleDragOver（evt）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    evt.stopPropagation（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    evt.preventDefault（）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	    evt.dataTransfer.dropEffect ='copy';</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	  }</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-//// jsc3d邏輯</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	var handle_file_select = function（e）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		e.stopPropagation（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		e.preventDefault（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		var f = e.target.files [0]</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		preview_stl（f）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	}</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	function preview_stl（f）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		var reader = new FileReader（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		var ext = f.name.split（“。”）[1]</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		function setup_viewer（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'InitRotationX'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'InitRotationY'，20）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'InitRotationZ'，0）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'ModelColor'，'＃CAA618'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'BackgroundColor1'，'＃FFFFFF'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'BackgroundColor2'，'＃383840'）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			viewer.setParameter（'RenderMode'，“flat”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		setup_viewer（）</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		reader.onload =（function（file）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			返回函數（e）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-				theScene =新的JSC3D.Scene</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		    	stl_loader = new JSC3D.StlLoader（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		    	stl_loader.parseStl（theScene，e.target.result）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		      	//viewer.init（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		      	viewer.replaceScene（theScene）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		      	viewer.update（）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		      	console.log（“文件閱讀器onload”）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		}）（F）</span></span><span></span>
-<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		if（ext.toLowerCase（）！=“stl”）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			alert（“那似乎不是一個STL文件。”）;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		} else {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-			reader.readAsBinaryString（F）</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-		}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-	}</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span><span></span>
-</pre>
-<p></p>
-<h3>Html 原始碼</h3>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">&lt;HTML&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-   &lt;HEAD&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;meta http-equiv =“content-type”content =“text / html; charset = utf-8”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;TITLE&gt; CMSimfly &lt;/ TITLE&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;link rel =“stylesheet”type =“text / css”href =“/ static / cmsimply.css”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-   &lt;/ HEAD&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-   &lt;BODY&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;div class ='container'&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;NAV&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;ul id ='css3menu1'class ='topmenu'&gt;</span></span><span></span>
-            &lt;li&gt;&lt;a href='/get_page/簡介'&gt;簡介&lt;/a&gt;<span></span>
-            &lt;li&gt;&lt;a href='/get_page/目錄結構'&gt;目錄結構&lt;/a&gt;<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-            &lt;LI&gt;</span></span><span></span>
-               &lt;a href='/get_page/頁面編輯'&gt;頁面編輯&lt;/a&gt;<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-               &lt;UL&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                  &lt;LI&gt;</span></span><span></span>
-                     &lt;a href='/get_page/插入程式碼'&gt;插入程式碼&lt;/a&gt;<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                     &lt;UL&gt;</span></span><span></span>
-                        &lt;li&gt;&lt;a href='/get_page/Java 程式碼'&gt;Java 程式碼&lt;/a&gt;<span></span>
-                        &lt;li&gt;&lt;a href='/get_page/Python 程式碼'&gt;Python 程式碼&lt;/a&gt;<span></span>
-                        &lt;li&gt;&lt;a href='/get_page/C或C++程式碼'&gt;C或C++程式碼&lt;/a&gt;<span></span>
-                        &lt;li&gt;&lt;a href='/get_page/Lua 程式碼'&gt;Lua 程式碼&lt;/a&gt;<span></span>
-                        &lt;li&gt;&lt;a href='/get_page/Javascript 程式碼'&gt;Javascript 程式碼&lt;/a&gt;<span></span>
-                        &lt;li&gt;&lt;a href='/get_page/Html 原始碼'&gt;Html 原始碼&lt;/a&gt;&lt;/li&gt;<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                        &lt;/ LI&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-                     &lt;/ UL&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-               &lt;/ UL&gt;</span></span><span></span>
-            &lt;li&gt;&lt;a href='/get_page/網際簡報'&gt;網際簡報&lt;/a&gt;<span></span>
-            &lt;li&gt;&lt;a href='/get_page/網誌編輯'&gt;網誌編輯&lt;/a&gt;<span></span>
-            &lt;li&gt;&lt;a href='/get_page/已知錯誤'&gt;已知錯誤&lt;/a&gt;&lt;/li&gt;<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;/ UL&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;/ NAV&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;節&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;form method ='post'action ='/ ssavePage'&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;textarea class ='simply-editor'name ='page_content'cols ='''rows = '15'&gt; &lt;h3&gt; Html原始碼&lt;/ h3&gt; &lt;/ textarea&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;input type ='hidden'name ='page_order'value ='9'&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;input type ='submit'value ='save'&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;input type = button onClick =“location.href ='/ get_page / Html原始碼'”value ='viewpage'&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-         &lt;/ FORM&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-      &lt;/節&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-   &lt;/ BODY&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-&lt;/ HTML&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-複製到剪貼板	</span></span></pre>
-<p></p>
-<h1>網際簡報</h1>
-<p>CMSimfly 中採用 <a href="https://revealjs.com/#/">Reveal.js</a> 作為網際簡報, 其中的維護檔案位於 config/reveal.js, 而對應的簡報檔案則位於 reveal 目錄中.</p>
-<h1>網誌編輯</h1>
-<p>CMSimfly 彩用 <a href="https://blog.getpelican.com/">Pelican blog</a> 系統, 編輯檔案位於 config/pelican.leo, 對應的</p>
-<p> Markdown 原始檔案位於 markdown 目錄中, 而經 Pelican 轉換出的網誌超文件檔案則位於 blog 目錄中.</p>
-<p>其餘在網誌文章中所需要的 Javascript 或 Brython 程式檔案, 則與 CMSimfly 及 Reveal.js 共用, 位於 static 目錄下.</p>
-<p>上傳檔案與圖檔的引用則與 CMSimfly 架構相同.</p>
-<h1>已知錯誤</h1>
-<h4>全部頁面會因無法正確解讀而誤刪</h4>
-<p>在特定情況下, 系統會誤刪 config/content.htm 檔案, 目前在單頁或全部頁面編輯存檔之前, 或將上一版本的 content.htm 存入 content_back.htm, 若 content.htm 內容被程式誤刪, 可以利用備份檔案複製回原始內容後, 再進行後續處理.</p>
-<h4>頁面標題不支援特殊符號</h4>
-<p>各頁面標題目前不支援特殊符號, 例如: "/", "?" 等, 若已經發生程式無法解讀頁面的情況, 只能從編輯 config/content.htm 下手, 若系統位於遠端, 則後續必須要再設法提供一個額外的編輯 config/content.htm 檔案的網際連結功能.</p>
-<h4>Video 引用不支援內部引用</h4>
-<p>tinymce 中插入 video 的小視窗, 要移除引用的圖像與連結, 因為一般建議不要在內容中存入 .mp4 的影片資料, 而只接受引入影片 URL 連結.</p>
+<pre class="brush:java;auto-links:false;toolbar:false" contenteditable="false">import java.util.Scanner;
+
+public class Life {
+    public static void show(boolean[][] grid){
+        String s = "";
+        for(boolean[] row : grid){
+            for(boolean val : row)
+                if(val)
+                    s += "*";
+                else
+                    s += ".";
+            s += "\n";
+        }
+        System.out.println(s);
+    }
+    
+    public static boolean[][] gen(){
+        boolean[][] grid = new boolean[10][10];
+        for(int r = 0; r &lt; 10; r++)
+            for(int c = 0; c &lt; 10; c++)
+                if( Math.random() &gt; 0.7 )
+                    grid[r][c] = true;
+        return grid;
+    }
+    
+    public static void main(String[] args){
+        boolean[][] world = gen();
+        show(world);
+        System.out.println();
+        world = nextGen(world);
+        show(world);
+        Scanner s = new Scanner(System.in);
+        while(s.nextLine().length() == 0){
+            System.out.println();
+            world = nextGen(world);
+            show(world);
+            
+        }
+    }
+    
+    public static boolean[][] nextGen(boolean[][] world){
+        boolean[][] newWorld 
+            = new boolean[world.length][world[0].length];
+        int num;
+        for(int r = 0; r &lt; world.length; r++){
+            for(int c = 0; c &lt; world[0].length; c++){
+                num = numNeighbors(world, r, c);
+                if( occupiedNext(num, world[r][c]) )
+                    newWorld[r][c] = true;
+            }
+        }
+        return newWorld;
+    }
+    
+    public static boolean occupiedNext(int numNeighbors, boolean occupied){
+        if( occupied &amp;&amp; (numNeighbors == 2 || numNeighbors == 3))
+            return true;
+        else if (!occupied &amp;&amp; numNeighbors == 3)
+            return true;
+        else
+            return false;
+    }
+
+    private static int numNeighbors(boolean[][] world, int row, int col) {
+        int num = world[row][col] ? -1 : 0;
+        for(int r = row - 1; r &lt;= row + 1; r++)
+            for(int c = col - 1; c &lt;= col + 1; c++)
+                if( inbounds(world, r, c) &amp;&amp; world[r][c] )
+                    num++;
+
+        return num;
+    }
+
+    private static boolean inbounds(boolean[][] world, int r, int c) {
+        return r &gt;= 0 &amp;&amp; r &lt; world.length &amp;&amp; c &gt;= 0 &amp;&amp;
+        c &lt; world[0].length;
+    }
+
+}</pre>
 <h1>期中報告影片</h1>
 <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="368" src="https://www.youtube.com/embed/vyz6PUcxMvg" width="654"></iframe></p>
-<h1>按一下</h1>
-<p><button onclick="myFunction()"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">哥哥不要啦!~~</span></span></button></p>
+<div>
+<div class="syntaxhighlighter html" id="highlighter_890407"></div>
+</div>
+<h1>小遊戲</h1>
+<script type="text/javascript">// <![CDATA[
+var cwidth = 400;
+    var cheight = 300;
+    var dicex = 50;
+    var dicey = 50;
+    var dicewidth = 100;
+    var diceheight = 100;
+    var dotrad = 6;
+    var ctx;
+    var dx;
+    var dy;
+    var firstturn = true;
+    var point;
+function throwdice() {
+    var sum;
+    var ch = 1+Math.floor(Math.random()*6);
+    sum = ch;
+    dx = dicex;
+    dy = dicey;
+    drawface(ch);
+    dx = dicex + 150;
+    ch=1 + Math.floor(Math.random()*6);
+    sum += ch;
+    drawface(ch);
+    if (firstturn) {
+        switch(sum) {
+            case 7:
+            case 11:
+              document.f.outcome.value="You win!";
+              break;
+            case 2:
+            case 3:
+            case 12:
+              document.f.outcome.value="You lose!";
+              break;
+            default:
+              point = sum;
+              document.f.pv.value=point;
+              firstturn = false;
+              document.f.stage.value="Need follow-up throw.";
+              document.f.outcome.value="   ";
+        }
+    }
+    else {
+        switch(sum) {
+        case point:
+           document.f.outcome.value="You win!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+           break;
+        case 7:
+           document.f.outcome.value="You lose!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+        }
+            }
+}
+function drawface(n) {
+  ctx = document.getElementById('canvas').getContext('2d'); 
+  ctx.lineWidth = 5;
+  ctx.clearRect(dx,dy,dicewidth,diceheight);
+  ctx.strokeRect(dx,dy,dicewidth,diceheight)
+  var dotx;
+  var doty;
+  ctx.fillStyle = "#009966";
+    switch(n) {
+        case 1:
+         draw1();
+         break;
+        case 2:
+         draw2();
+         break;
+        case 3:
+         draw2();
+         draw1();
+         break;
+        case 4:
+         draw4();
+         break;
+        case 5:
+         draw4();
+         draw1();
+         break;
+        case 6:
+         draw4();
+         draw2mid();
+         break;
+         
+    }
+}
+function draw1() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + .5*dicewidth;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw4() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + diceheight-3*dotrad;  //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+ 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2mid() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy + .5*diceheight; //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+// ]]></script>
+<p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
+<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form>
+<h1>哥哥快來呦!</h1>
+<p><button onclick="myFunction()">哥哥不要啦!~~</button></p>
 <p id="demo"></p>
 <script>// <![CDATA[
 function myFunction() {
   document.getElementById("demo").innerHTML = Math.floor(Math.random()*50 + 1);
   //document.getElementById("demo").innerHTML = "不要亂按";
- alert("阿~~ 射了")
+ //alert("不要亂按")
 }
 // ]]></script>
