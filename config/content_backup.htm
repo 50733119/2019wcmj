@@ -36,124 +36,8 @@ IdentityFile "y:\home\.ssh\id_rsa"
 
 TCPKeepAlive yes
 IdentitiesOnly yes</pre>
-<h1>目錄結構</h1>
-<p>第二位想要編輯這裡</p>
-<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/9A-hg32eD-s" width="560"></iframe></p>
-<p>CMSimfly 的動態系統採用 Python3 + Flask 建構, 並且利用 Beatifulsoup 解讀位於 contig 目錄中的 content.htm 超文件檔案.</p>
-<p>content.htm 檔案可以透過動態系統中的 generate_pages 功能, 將超文件轉為位於 content 目錄中的個別頁面檔案.</p>
-<p>動態系統與靜態系統則共用 downloads, images, static 等目錄, 其中 downloads 目錄存放在動態系統上傳的文件檔, 而 images 目錄則存放動態系統所上傳的影像檔案, 包括 jpg, png 與 gif 等格式圖檔.</p>
-<p>static 目錄則存放在動態與靜態系統所需要的 Javascript 或 Brython 程式檔.</p>
-<p>還有這裡</p>
-<p>首先修改這裡</p>
-<p></p>
-<h1>頁面編輯</h1>
-<p>CMSimfly 動態系統的網際編輯器採用 <a href="https://www.tiny.cloud/">TinyMCE4</a>, 可以放入一般超文件,  納入圖檔, 嵌入影片連結, 並且加入帶有行數的原始碼.</p>
-<p>透過 File Upload 功能, 可以一次上傳多個檔案,  存入 downloads 目錄中儲存, 之後各頁面可以引入對應連結.</p>
-<p>而圖檔的上傳與引用與一般檔案類似, 但上傳後存入 images 目錄中.</p>
-<h2>插入程式碼</h2>
-<p>CMSimfly 目前使用 Syntaxhighlighter 3.0.83:</p>
-<p> <a href="http://alexgorbatchev.com/SyntaxHighlighter/">http://alexgorbatchev.com/SyntaxHighlighter/</a> </p>
-<p>進行頁面中的程式碼高亮顯示.</p>
-<h3>Java 程式碼</h3>
-<pre class="brush:java;auto-links:false;toolbar:false" contenteditable="false">import java.util.Scanner;
-
-public class Life {
-    public static void show(boolean[][] grid){
-        String s = "";
-        for(boolean[] row : grid){
-            for(boolean val : row)
-                if(val)
-                    s += "*";
-                else
-                    s += ".";
-            s += "\n";
-        }
-        System.out.println(s);
-    }
-    
-    public static boolean[][] gen(){
-        boolean[][] grid = new boolean[10][10];
-        for(int r = 0; r &lt; 10; r++)
-            for(int c = 0; c &lt; 10; c++)
-                if( Math.random() &gt; 0.7 )
-                    grid[r][c] = true;
-        return grid;
-    }
-    
-    public static void main(String[] args){
-        boolean[][] world = gen();
-        show(world);
-        System.out.println();
-        world = nextGen(world);
-        show(world);
-        Scanner s = new Scanner(System.in);
-        while(s.nextLine().length() == 0){
-            System.out.println();
-            world = nextGen(world);
-            show(world);
-            
-        }
-    }
-    
-    public static boolean[][] nextGen(boolean[][] world){
-        boolean[][] newWorld 
-            = new boolean[world.length][world[0].length];
-        int num;
-        for(int r = 0; r &lt; world.length; r++){
-            for(int c = 0; c &lt; world[0].length; c++){
-                num = numNeighbors(world, r, c);
-                if( occupiedNext(num, world[r][c]) )
-                    newWorld[r][c] = true;
-            }
-        }
-        return newWorld;
-    }
-    
-    public static boolean occupiedNext(int numNeighbors, boolean occupied){
-        if( occupied &amp;&amp; (numNeighbors == 2 || numNeighbors == 3))
-            return true;
-        else if (!occupied &amp;&amp; numNeighbors == 3)
-            return true;
-        else
-            return false;
-    }
-
-    private static int numNeighbors(boolean[][] world, int row, int col) {
-        int num = world[row][col] ? -1 : 0;
-        for(int r = row - 1; r &lt;= row + 1; r++)
-            for(int c = col - 1; c &lt;= col + 1; c++)
-                if( inbounds(world, r, c) &amp;&amp; world[r][c] )
-                    num++;
-
-        return num;
-    }
-
-    private static boolean inbounds(boolean[][] world, int r, int c) {
-        return r &gt;= 0 &amp;&amp; r &lt; world.length &amp;&amp; c &gt;= 0 &amp;&amp;
-        c &lt; world[0].length;
-    }
-
-}</pre>
-<h1>網際簡報</h1>
-<p>CMSimfly 中採用 <a href="https://revealjs.com/#/">Reveal.js</a> 作為網際簡報, 其中的維護檔案位於 config/reveal.js, 而對應的簡報檔案則位於 reveal 目錄中.</p>
-<h1>網誌編輯</h1>
-<p>CMSimfly 採用 <a href="https://blog.getpelican.com/">Pelican blog</a> 系統, 編輯檔案位於 config/pelican.leo, 對應的</p>
-<p> Markdown 原始檔案位於 markdown 目錄中, 而經 Pelican 轉換出的網誌超文件檔案則位於 blog 目錄中.</p>
-<p>其餘在網誌文章中所需要的 Javascript 或 Brython 程式檔案, 則與 CMSimfly 及 Reveal.js 共用, 位於 static 目錄下.</p>
-<p>上傳檔案與圖檔的引用則與 CMSimfly 架構相同.</p>
-<p>第二位搶這裡也是不遺餘力</p>
-<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/KZnCu1Sq1vo" width="560"></iframe></p>
-<p>就是這樣編輯的</p>
-<p>接下來修改這裡</p>
-<p></p>
-<h1>已知錯誤</h1>
-<h4>全部頁面會因無法正確解讀而誤刪</h4>
-<p>在特定情況下, 系統會誤刪 config/content.htm 檔案, 目前在單頁或全部頁面編輯存檔之前, 或將上一版本的 content.htm 存入 content_back.htm, 若 content.htm 內容被程式誤刪, 可以利用備份檔案複製回原始內容後, 再進行後續處理.</p>
-<h1>期中報告影片</h1>
-<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="368" src="https://www.youtube.com/embed/vyz6PUcxMvg" width="654"></iframe></p>
-<div>
-<div class="syntaxhighlighter html" id="highlighter_890407"></div>
-</div>
+<h1>期中影片</h1>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/vyz6PUcxMvg" width="560"></iframe></p>
 <h1>小遊戲</h1>
 <script type="text/javascript">// <![CDATA[
 var cwidth = 400;
@@ -308,7 +192,7 @@ function draw2mid() {
 // ]]></script>
 <p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
 <form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form>
-<h1>哥哥快來呦!</h1>
+<h1>產生亂數</h1>
 <p><button onclick="myFunction()">哥哥不要啦!~~</button></p>
 <p id="demo"></p>
 <script>// <![CDATA[
@@ -318,3 +202,232 @@ function myFunction() {
  //alert("不要亂按")
 }
 // ]]></script>
+<h1>ROC flag</h1>
+<!-- 導入 Brython 標準程式庫 -->
+<script src="/get_page/static/brython.js"></script>
+<script src="/get_page/static/brython_stdlib.js"></script>
+<p></p>
+<!-- 啟動 Brython -->
+<script>
+
+window.onload=function(){
+
+
+
+// 設定 data/py 為共用程式路徑
+
+
+
+brython({debug:1, pythonpath:['./../data/py']});
+
+
+
+}
+
+</script>
+<p><canvas height="400" id="plotarea" width="600"></canvas></p>
+<script type="text/python">
+
+# 導入 doc
+
+
+
+from browser import document as doc
+
+
+
+import math
+
+
+
+
+
+
+
+# 準備繪圖畫布
+
+
+
+canvas = doc["plotarea"]
+
+
+
+ctx = canvas.getContext("2d")
+
+
+
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+
+
+
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+
+
+
+# 以下採用 canvas 原始座標繪圖
+
+
+
+flag_w = canvas.width
+
+
+
+flag_h = canvas.height
+
+
+
+circle_x = flag_w/4
+
+
+
+circle_y = flag_h/4
+
+
+
+# 先畫滿地紅
+
+
+
+ctx.fillStyle='rgb(255, 0, 0)'
+
+
+
+ctx.fillRect(0,0,flag_w,flag_h)
+
+
+
+# 再畫青天
+
+
+
+ctx.fillStyle='rgb(0, 0, 150)'
+
+
+
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+
+
+
+# 畫十二道光芒白日
+
+
+
+ctx.beginPath()
+
+
+
+star_radius = flag_w/8
+
+
+
+angle = 0
+
+
+
+for i in range(24):
+
+
+
+    angle += 5*math.pi*2/12
+
+
+
+    toX = circle_x + math.cos(angle)*star_radius
+
+
+
+    toY = circle_y + math.sin(angle)*star_radius
+
+
+
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+
+
+
+    if (i):
+
+
+
+        ctx.lineTo(toX, toY)
+
+
+
+    else:
+
+
+
+        ctx.moveTo(toX, toY)
+
+
+
+ctx.closePath()
+
+
+
+# 將填色設為白色
+
+
+
+ctx.fillStyle = '#fff'
+
+
+
+ctx.fill()
+
+
+
+# 白日:藍圈
+
+
+
+ctx.beginPath()
+
+
+
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+
+
+
+ctx.closePath()
+
+
+
+# 填色設為藍色
+
+
+
+ctx.fillStyle = 'rgb(0, 0, 149)'
+
+
+
+ctx.fill()
+
+
+
+# 白日:白心
+
+
+
+ctx.beginPath()
+
+
+
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+
+
+
+ctx.closePath()
+
+
+
+# 填色設為白色
+
+
+
+ctx.fillStyle = '#fff'
+
+
+
+ctx.fill()
+
+</script>
