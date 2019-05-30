@@ -13,29 +13,6 @@
 <p></p>
 <h1>week3</h1>
 <p>根據 <a href="https://2019wcm.blogspot.com/2019/03/ungit.html">https://2019wcm.blogspot.com/2019/03/ungit.html</a> 的設定, 完成 ungit 配置.</p>
-<h1>git http 與 ssh</h1>
-<p>利用 ssh 對 git 改版, 必須使用  home/.ssh/config 設定, 才能透過 proxy 伺服器進行連線, 由於在 IPv6 環境下, 必須要透過 proxy 才能對 Git 連線, 因此若無 config, 無法對遠端改版</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ProxyCommand y:/PortableGit/mingw64/bin/connect.exe -H 140.130.17.53:3128 %h %p
-
-Host github.com
-User git
-Port 22
-Hostname github.com
-
-IdentityFile "y:\home\.ssh\id_rsa"
-
-TCPKeepAlive yes
-IdentitiesOnly yes
-
-Host ssh.github.com
-User git
-Port 443
-Hostname ssh.github.com
-
-IdentityFile "y:\home\.ssh\id_rsa"
-
-TCPKeepAlive yes
-IdentitiesOnly yes</pre>
 <h1>期中影片</h1>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/vyz6PUcxMvg" width="560"></iframe></p>
 <h1>小遊戲</h1>
@@ -202,11 +179,11 @@ function myFunction() {
  //alert("不要亂按")
 }
 </script>
-<h1>roc2 flag</h1>
+<h1>ROC flag</h1>
 <!-- 導入 Brython 標準程式庫 -->
 <p>
-<script src="/get_page/static/brython.js"></script>
-<script src="/get_page/static/brython_stdlib.js"></script>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
 </p>
 <p></p>
 <!-- 啟動 Brython -->
@@ -326,7 +303,8 @@ ctx.fillStyle = '#fff'
 
 ctx.fill()
 </script>
-</p><h1>roc flag</h1>
+</p>
+<h2>ROC flag-2</h2>
 <!-- 導入 Brython 標準程式庫 -->
 <p>
 <script src="/static/brython.js"></script>

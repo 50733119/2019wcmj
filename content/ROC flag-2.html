@@ -136,7 +136,7 @@ init_mathjax();
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='簡介.html'>簡介</a><li><a href='week1.html'>week1</a><li><a href='week2.html'>week2</a><li><a href='week3.html'>week3</a><li><a href='git http 與 ssh.html'>git http 與 ssh</a><li><a href='期中影片.html'>期中影片</a><li><a href='小遊戲.html'>小遊戲</a><li><a href='產生亂數.html'>產生亂數</a><li><a href='roc2 flag.html'>roc2 flag</a><li><a href='roc flag.html'>roc flag</a></li>
+                     <li><a href='簡介.html'>簡介</a><li><a href='week1.html'>week1</a><li><a href='week2.html'>week2</a><li><a href='week3.html'>week3</a><li><a href='期中影片.html'>期中影片</a><li><a href='小遊戲.html'>小遊戲</a><li><a href='產生亂數.html'>產生亂數</a><li class='has-children'><a href='ROC flag.html'>ROC flag</a><ul class='dropdown'><li><a href='ROC flag-2.html'>ROC flag-2</a></li>
                       </ul>
                 </nav>
               </div>
@@ -147,30 +147,131 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">week3 << <a href='week3.html'>Previous</a> <a href='期中影片.html'>Next</a> >> 期中影片<br /><h1>git http 與 ssh</h1>
-<p>利用 ssh 對 git 改版, 必須使用  home/.ssh/config 設定, 才能透過 proxy 伺服器進行連線, 由於在 IPv6 環境下, 必須要透過 proxy 才能對 Git 連線, 因此若無 config, 無法對遠端改版</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ProxyCommand y:/PortableGit/mingw64/bin/connect.exe -H 140.130.17.53:3128 %h %p
+    <div id="tipue_search_content">ROC flag << <a href='ROC flag.html'>Previous</a> <br /><h1>ROC flag-2</h1>
+<!-- 導入 Brython 標準程式庫 -->
+<p>
+<script src="./../static/brython.js"></script>
+<script src="./../static/brython_stdlib.js"></script>
+</p>
+<p></p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
 
-Host github.com
-User git
-Port 22
-Hostname github.com
+// 設定 data/py 為共用程式路徑
 
-IdentityFile "y:\home\.ssh\id_rsa"
+brython({debug:1, pythonpath:['./../data/py']});
 
-TCPKeepAlive yes
-IdentitiesOnly yes
+}
+</script>
+</p>
+<p><canvas height="400" id="plotarea" width="600"></canvas></p>
+<p>
+<script type="text/python">
+# 導入 doc
 
-Host ssh.github.com
-User git
-Port 443
-Hostname ssh.github.com
+from browser import document as doc
 
-IdentityFile "y:\home\.ssh\id_rsa"
+import math
 
-TCPKeepAlive yes
-IdentitiesOnly yes</pre>
-<br />week3 << <a href='week3.html'>Previous</a> <a href='期中影片.html'>Next</a> >> 期中影片</div>
+
+
+# 準備繪圖畫布
+
+canvas = doc["plotarea"]
+
+ctx = canvas.getContext("2d")
+
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+
+# 以下採用 canvas 原始座標繪圖
+
+flag_w = canvas.width
+
+flag_h = canvas.height
+
+circle_x = flag_w/4
+
+circle_y = flag_h/4
+
+# 先畫滿地紅
+
+ctx.fillStyle='rgb(255, 0, 0)'
+
+ctx.fillRect(0,0,flag_w,flag_h)
+
+# 再畫青天
+
+ctx.fillStyle='rgb(0, 0, 150)'
+
+ctx.fillRect(0,0,flag_w/2,flag_h/2)
+
+# 畫十二道光芒白日
+
+ctx.beginPath()
+
+star_radius = flag_w/8
+
+angle = 0
+
+for i in range(24):
+
+    angle += 5*math.pi*2/12
+
+    toX = circle_x + math.cos(angle)*star_radius
+
+    toY = circle_y + math.sin(angle)*star_radius
+
+    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
+
+    if (i):
+
+        ctx.lineTo(toX, toY)
+
+    else:
+
+        ctx.moveTo(toX, toY)
+
+ctx.closePath()
+
+# 將填色設為白色
+
+ctx.fillStyle = '#fff'
+
+ctx.fill()
+
+# 白日:藍圈
+
+ctx.beginPath()
+
+ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
+
+ctx.closePath()
+
+# 填色設為藍色
+
+ctx.fillStyle = 'rgb(0, 0, 149)'
+
+ctx.fill()
+
+# 白日:白心
+
+ctx.beginPath()
+
+ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
+
+ctx.closePath()
+
+# 填色設為白色
+
+ctx.fillStyle = '#fff'
+
+ctx.fill()
+</script>
+</p><br />ROC flag << <a href='ROC flag.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
