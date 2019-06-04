@@ -147,132 +147,30 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">產生亂數 << <a href='產生亂數.html'>Previous</a> <a href='ROC flag-2.html'>Next</a> >> ROC flag-2<br /><h1>ROC flag</h1>
-<!-- 導入 Brython 標準程式庫 -->
-<p>
-<script src="./../static/brython.js"></script>
-<script src="./../static/brython_stdlib.js"></script>
-</p>
-<p></p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-
-// 設定 data/py 為共用程式路徑
-
-brython({debug:1, pythonpath:['./../data/py']});
-
-}
-</script>
-</p>
-<p><canvas height="400" id="plotarea" width="600"></canvas></p>
-<p>
-<script type="text/python">
-# 導入 doc
-
-from browser import document as doc
-
-import math
-
-
-
-# 準備繪圖畫布
-
-canvas = doc["plotarea"]
-
-ctx = canvas.getContext("2d")
-
-# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
-
-# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
-
-# 以下採用 canvas 原始座標繪圖
-
-flag_w = canvas.width
-
-flag_h = canvas.height
-
-circle_x = flag_w/2
-
-circle_y = flag_h/2
-
-# 先畫滿地紅
-
-ctx.fillStyle='rgb(255, 0, 0)'
-
-ctx.fillRect(0,0,flag_w,flag_h)
-
-# 再畫青天
-
-ctx.fillStyle='rgb(0, 0, 150)'
-
-ctx.fillRect(0,0,flag_w/2,flag_h/2)
-
-# 畫十二道光芒白日
-
-ctx.beginPath()
-
-star_radius = flag_w/8
-
-angle = 0
-
-for i in range(24):
-
-    angle += 5*math.pi*2/12
-
-    toX = circle_x + math.cos(angle)*star_radius
-
-    toY = circle_y + math.sin(angle)*star_radius
-
-    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-
-    if (i):
-
-        ctx.lineTo(toX, toY)
-
-    else:
-
-        ctx.moveTo(toX, toY)
-
-ctx.closePath()
-
-# 將填色設為白色
-
-ctx.fillStyle = '#fff'
-
-ctx.fill()
-
-# 白日:藍圈
-
-ctx.beginPath()
-
-ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
-
-ctx.closePath()
-
-# 填色設為藍色
-
-ctx.fillStyle = 'rgb(0, 0, 149)'
-
-ctx.fill()
-
-# 白日:白心
-
-ctx.beginPath()
-
-ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
-
-ctx.closePath()
-
-# 填色設為白色
-
-ctx.fillStyle = '#fff'
-
-ctx.fill()
-</script>
-</p>
-<br />產生亂數 << <a href='產生亂數.html'>Previous</a> <a href='ROC flag-2.html'>Next</a> >> ROC flag-2</div>
+    <div id="tipue_search_content">VM 虛擬主機 << <a href='VM 虛擬主機.html'>Previous</a> <a href='Game.html'>Next</a> >> Game<br /><h1>SSL-VPN</h1>
+<p>到學校電算中心有SSL-VPN服務教學</p>
+<p>參考網址:<a href="https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn">https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn</a></p>
+<ol>
+<li><strong>首次使用須先安裝SSL VPN 程式(Juniper Networks Connect)</strong></li>
+</ol>
+<p><strong><span>      程式下載完成後，點擊兩下開始安裝。</span></strong></p>
+<p><img alt="" height="292" src="./../images/-archive-3629_d5014af5.png" width="480"/></p>
+<p><strong>2. </strong><strong>進行身份驗證(可由Juniper Network Connect或IE，請擇一進行身分認證)</strong></p>
+<p><img alt="" height="760" src="./../images/5.jpg" width="480"/></p>
+<p><span>2.執行程式後，於"登入頁面"輸入網址 :</span><span> </span><a href="https://sslvpn.nfu.edu.tw/nfu">https://sslvpn9.twaren.net/nfu</a><span> </span><span>，後按下"執行"</span></p>
+<p><img alt="" height="479" src="./../images/1.jpg" width="480"/></p>
+<p><span>3.輸入使用者帳號密碼，請填入校務行政AD帳號及密碼。請完整填寫您在校務行政AD帳號以及密碼，否則國網中心找不到對象進行身份確認 </span><br/><span>！(例: 員工編號或學號@ctx10.nfu.edu.tw）</span></p>
+<p><img caption="false" height="436" src="./../images/1.png" width="480"/></p>
+<p><strong><span>4.  </span></strong><strong><span><strong><span>出現"設定控制-警告"視窗，按下"是</span></strong></span></strong><strong><span><strong><span>"</span></strong></span></strong></p>
+<p><img alt="" height="538" src="./../images/3.jpg" width="480"/></p>
+<p><strong><span>5.螢幕右下角顯示"已連接"，表示已成功連線。</span></strong></p>
+<p><img alt="" height="306" src="./../images/4.jpg" width="480"/></p>
+<p><strong><span>6. 在IE瀏覽器上按下右鍵 使用"以系統管理員身分執行"</span></strong></p>
+<div><span>登入頁面請輸入： <a href="https://sslvpn9.twaren.net/nfu">https://sslvpn9.twaren.net/nfu</a>，按下「執行」，會出現帳號與密碼登入欄位。</span><br/><span>請填入虎尾科技大學的校務行政帳號及密碼，並請輸入下方驗證碼，進行身份確認。</span><br/><span>請完整填寫您在虎尾科技大學的校務行政帳號以及密碼。</span></div>
+<div><span>(例:<span><span> 員工編號或學號@ctx10.nfu.edu.tw</span></span>）</span><br/><span>填寫完畢以後按下Login登入就會開始進行身份確認，請稍後一段時間。</span></div>
+<p><strong><img alt="" height="761" src="./../images/1 (1).jpg" width="480"/></strong><img alt="" height="296" src="./../images/2 (1).jpg" width="480"/></p>
+<p><span>點選「開始」</span></p>
+<p><img caption="false" height="300" src="./../images/3 (1).jpg" width="480"/></p><br />VM 虛擬主機 << <a href='VM 虛擬主機.html'>Previous</a> <a href='Game.html'>Next</a> >> Game</div>
         
     <!-- footer -->
       <div class="container">

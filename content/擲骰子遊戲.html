@@ -147,132 +147,160 @@ init_mathjax();
           </div>
           
         </header>
-    <div id="tipue_search_content">產生亂數 << <a href='產生亂數.html'>Previous</a> <a href='ROC flag-2.html'>Next</a> >> ROC flag-2<br /><h1>ROC flag</h1>
-<!-- 導入 Brython 標準程式庫 -->
-<p>
-<script src="./../static/brython.js"></script>
-<script src="./../static/brython_stdlib.js"></script>
-</p>
-<p></p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-
-// 設定 data/py 為共用程式路徑
-
-brython({debug:1, pythonpath:['./../data/py']});
-
+    <div id="tipue_search_content">期中影片 << <a href='期中影片.html'>Previous</a> <a href='產生亂數.html'>Next</a> >> 產生亂數<br /><h1>擲骰子遊戲</h1>
+<script type="text/javascript">
+var cwidth = 400;
+    var cheight = 300;
+    var dicex = 50;
+    var dicey = 50;
+    var dicewidth = 100;
+    var diceheight = 100;
+    var dotrad = 6;
+    var ctx;
+    var dx;
+    var dy;
+    var firstturn = true;
+    var point;
+function throwdice() {
+    var sum;
+    var ch = 1+Math.floor(Math.random()*6);
+    sum = ch;
+    dx = dicex;
+    dy = dicey;
+    drawface(ch);
+    dx = dicex + 150;
+    ch=1 + Math.floor(Math.random()*6);
+    sum += ch;
+    drawface(ch);
+    if (firstturn) {
+        switch(sum) {
+            case 7:
+            case 11:
+              document.f.outcome.value="You win!";
+              break;
+            case 2:
+            case 3:
+            case 12:
+              document.f.outcome.value="You lose!";
+              break;
+            default:
+              point = sum;
+              document.f.pv.value=point;
+              firstturn = false;
+              document.f.stage.value="Need follow-up throw.";
+              document.f.outcome.value="   ";
+        }
+    }
+    else {
+        switch(sum) {
+        case point:
+           document.f.outcome.value="You win!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+           break;
+        case 7:
+           document.f.outcome.value="You lose!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+        }
+            }
+}
+function drawface(n) {
+  ctx = document.getElementById('canvas').getContext('2d'); 
+  ctx.lineWidth = 5;
+  ctx.clearRect(dx,dy,dicewidth,diceheight);
+  ctx.strokeRect(dx,dy,dicewidth,diceheight)
+  var dotx;
+  var doty;
+  ctx.fillStyle = "#009966";
+    switch(n) {
+        case 1:
+         draw1();
+         break;
+        case 2:
+         draw2();
+         break;
+        case 3:
+         draw2();
+         draw1();
+         break;
+        case 4:
+         draw4();
+         break;
+        case 5:
+         draw4();
+         draw1();
+         break;
+        case 6:
+         draw4();
+         draw2mid();
+         break;
+         
+    }
+}
+function draw1() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + .5*dicewidth;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw4() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + diceheight-3*dotrad;  //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+ 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+}
+function draw2mid() {
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy + .5*diceheight; //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
 }
 </script>
-</p>
-<p><canvas height="400" id="plotarea" width="600"></canvas></p>
-<p>
-<script type="text/python">
-# 導入 doc
-
-from browser import document as doc
-
-import math
-
-
-
-# 準備繪圖畫布
-
-canvas = doc["plotarea"]
-
-ctx = canvas.getContext("2d")
-
-# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
-
-# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
-
-# 以下採用 canvas 原始座標繪圖
-
-flag_w = canvas.width
-
-flag_h = canvas.height
-
-circle_x = flag_w/2
-
-circle_y = flag_h/2
-
-# 先畫滿地紅
-
-ctx.fillStyle='rgb(255, 0, 0)'
-
-ctx.fillRect(0,0,flag_w,flag_h)
-
-# 再畫青天
-
-ctx.fillStyle='rgb(0, 0, 150)'
-
-ctx.fillRect(0,0,flag_w/2,flag_h/2)
-
-# 畫十二道光芒白日
-
-ctx.beginPath()
-
-star_radius = flag_w/8
-
-angle = 0
-
-for i in range(24):
-
-    angle += 5*math.pi*2/12
-
-    toX = circle_x + math.cos(angle)*star_radius
-
-    toY = circle_y + math.sin(angle)*star_radius
-
-    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-
-    if (i):
-
-        ctx.lineTo(toX, toY)
-
-    else:
-
-        ctx.moveTo(toX, toY)
-
-ctx.closePath()
-
-# 將填色設為白色
-
-ctx.fillStyle = '#fff'
-
-ctx.fill()
-
-# 白日:藍圈
-
-ctx.beginPath()
-
-ctx.arc(circle_x, circle_y, flag_w*17/240, 0, math.pi*2, True)
-
-ctx.closePath()
-
-# 填色設為藍色
-
-ctx.fillStyle = 'rgb(0, 0, 149)'
-
-ctx.fill()
-
-# 白日:白心
-
-ctx.beginPath()
-
-ctx.arc(circle_x, circle_y, flag_w/16, 0, math.pi*2, True)
-
-ctx.closePath()
-
-# 填色設為白色
-
-ctx.fillStyle = '#fff'
-
-ctx.fill()
-</script>
-</p>
-<br />產生亂數 << <a href='產生亂數.html'>Previous</a> <a href='ROC flag-2.html'>Next</a> >> ROC flag-2</div>
+<p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
+<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form><br />期中影片 << <a href='期中影片.html'>Previous</a> <a href='產生亂數.html'>Next</a> >> 產生亂數</div>
         
     <!-- footer -->
       <div class="container">

@@ -15,7 +15,7 @@
 <p>根據 <a href="https://2019wcm.blogspot.com/2019/03/ungit.html">https://2019wcm.blogspot.com/2019/03/ungit.html</a> 的設定, 完成 ungit 配置.</p>
 <h1>期中影片</h1>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/vyz6PUcxMvg" width="560"></iframe></p>
-<h1>小遊戲</h1>
+<h1>擲骰子遊戲</h1>
 <script type="text/javascript">
 var cwidth = 400;
     var cheight = 300;
@@ -168,8 +168,7 @@ function draw2mid() {
 }
 </script>
 <p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
-<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form>
-<h1>產生亂數</h1>
+<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form><h1>產生亂數</h1>
 <p><button onclick="myFunction()">哥哥不要啦!~~</button></p>
 <p id="demo"></p>
 <script>
@@ -429,3 +428,76 @@ ctx.fillStyle = '#fff'
 ctx.fill()
 </script>
 </p>
+<h1>VM 虛擬主機</h1>
+<p><span>1.到ubuntu網站下載Sever</span></p>
+<p><span>ubuntu網站:<a href="https://www.ubuntu.com/">https://www.ubuntu.com/</a></span></p>
+<p><img alt="" height="222" src="/images/1.png" width="480"/></p>
+<p><img alt="" height="130" src="/images/b.png" width="480"/></p>
+<p><span>1.打開VM--&gt;創建一台虛擬主機</span></p>
+<p><span><img alt="" height="270" src="/images/c.png" width="480"/></span></p>
+<p><span>2.設定主機名稱及分配記憶體(不建議低於2048MB)</span></p>
+<p><span><img alt="" height="433" src="/images/d.png" width="480"/></span></p>
+<p>3.Flie size通常都使用500GB,硬碟檔類型使用VMDK之後轉實體比較方便</p>
+<p>基本上我們的硬碟分配會使用動態分配(Dynamically allocated)用多少拿多少</p>
+<p>如果使用固定大小會很吃電腦的硬碟容量</p>
+<p><img alt="" height="437" src="/images/e.png" width="480"/></p>
+<p><span>4.設定完打開虛擬主機---&gt;載入檔案</span></p>
+<p><span><img alt="" height="414" src="/images/VirtualBox_D5dsuKgjbK.png" width="480"/></span></p>
+<p><span>5.按Start--&gt;設定</span></p>
+<p><span>選擇English語言</span></p>
+<p><span><img alt="" height="222" src="/images/1.png" width="480"/></span></p>
+<p><span>這裡不用改直接Done</span></p>
+<p><span><img alt="" height="222" src="/images/2.png" width="480"/></span></p>
+<p><span>這裡選第一個安裝,其他兩個是多主機雲端協同用的</span></p>
+<p><span><img alt="" height="222" src="/images/3.png" width="480"/></span></p>
+<p><span>這裡是網路設定,現在是以NAT,就可以直接下一步了</span></p>
+<p><span><img alt="" height="222" src="/images/4.png" width="480"/></span></p>
+<p>這裡是設定proxy,打上學校使用的proxy     <span> </span><a href="http://140.130.17.4:3128/">http://140.130.17.4:3128</a></p>
+<p>若不使用可留白</p>
+<p><img alt="" height="222" src="/images/5.png" width="480"/></p>
+<p><span>這是ubuntu的鏡像網址,保留預設就好</span></p>
+<p><span><img alt="" height="403" src="/images/6.png" width="480"/></span></p>
+<p><span>這裡是要分割硬碟,並格式化,這裡選第一個使用整顆硬碟來格式化</span></p>
+<p><span><img alt="" height="403" src="/images/7-1.png" width="480"/></span></p>
+<p><span>這裡是要安裝的硬碟</span></p>
+<p><span><img alt="" height="403" src="/images/7-3.1.png" width="480"/></span></p>
+<p><span>確認之後就可以開始格式化了</span></p>
+<p><span><img alt="" height="403" src="/images/7-6.png" width="480"/></span></p>
+<p><span><img alt="" height="403" src="/images/7-4.png" width="480"/></span></p>
+<p>再來要設定名稱和密碼</p>
+<p><img alt="" height="403" src="/images/7-2.png" width="480"/></p>
+<p><span>這是問你要不要使用SSH key,打勾Install OpenSSH sever,就可以下一步了</span></p>
+<p><span><img alt="" height="403" src="/images/7-3.png" width="480"/></span></p>
+<p><span>這裡直接下一步</span></p>
+<p><span><img alt="" height="403" src="/images/7-5.png" width="480"/></span></p>
+<p><span>等待安裝完就完成了</span></p>
+<p><span><img alt="" height="403" src="/images/11.png" width="480"/></span></p>
+<p><span>安裝完選擇Reboot Now就可以使用了</span></p>
+<p><span><img alt="" height="403" src="/images/12.png" width="480"/></span></p>
+<p>剛開始進入它會叫你輸入名稱和密碼,因為使用sudo都需要登入</p>
+<p>如果要關機要打指令<span><span color="#FF0000" style="color: #ff0000;">sudo halt</span><span>  <span color="blue" style="color: blue;">這是關機並沒有關閉電源</span></span></span></p>
+<p><span color="#000000">使用<span><span color="#FF0000" style="color: #ff0000;">sudo shutdown -h now</span>   <span><span color="blue" style="color: blue;">關機並關閉電源</span></span></span></span></p>
+<p><span></span></p><h1>SSL-VPN</h1>
+<p>到學校電算中心有SSL-VPN服務教學</p>
+<p>參考網址:<a href="https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn">https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn</a></p>
+<ol>
+<li><strong>首次使用須先安裝SSL VPN 程式(Juniper Networks Connect)</strong></li>
+</ol>
+<p><strong><span>      程式下載完成後，點擊兩下開始安裝。</span></strong></p>
+<p><img alt="" height="292" src="/images/-archive-3629_d5014af5.png" width="480"/></p>
+<p><strong>2. </strong><strong>進行身份驗證(可由Juniper Network Connect或IE，請擇一進行身分認證)</strong></p>
+<p><img alt="" height="760" src="/images/5.jpg" width="480"/></p>
+<p><span>2.執行程式後，於"登入頁面"輸入網址 :</span><span> </span><a href="https://sslvpn.nfu.edu.tw/nfu">https://sslvpn9.twaren.net/nfu</a><span> </span><span>，後按下"執行"</span></p>
+<p><img alt="" height="479" src="/images/1.jpg" width="480"/></p>
+<p><span>3.輸入使用者帳號密碼，請填入校務行政AD帳號及密碼。請完整填寫您在校務行政AD帳號以及密碼，否則國網中心找不到對象進行身份確認 </span><br/><span>！(例: 員工編號或學號@ctx10.nfu.edu.tw）</span></p>
+<p><img caption="false" height="436" src="/images/1.png" width="480"/></p>
+<p><strong><span>4.  </span></strong><strong><span><strong><span>出現"設定控制-警告"視窗，按下"是</span></strong></span></strong><strong><span><strong><span>"</span></strong></span></strong></p>
+<p><img alt="" height="538" src="/images/3.jpg" width="480"/></p>
+<p><strong><span>5.螢幕右下角顯示"已連接"，表示已成功連線。</span></strong></p>
+<p><img alt="" height="306" src="/images/4.jpg" width="480"/></p>
+<p><strong><span>6. 在IE瀏覽器上按下右鍵 使用"以系統管理員身分執行"</span></strong></p>
+<div><span>登入頁面請輸入： <a href="https://sslvpn9.twaren.net/nfu">https://sslvpn9.twaren.net/nfu</a>，按下「執行」，會出現帳號與密碼登入欄位。</span><br/><span>請填入虎尾科技大學的校務行政帳號及密碼，並請輸入下方驗證碼，進行身份確認。</span><br/><span>請完整填寫您在虎尾科技大學的校務行政帳號以及密碼。</span></div>
+<div><span>(例:<span><span> 員工編號或學號@ctx10.nfu.edu.tw</span></span>）</span><br/><span>填寫完畢以後按下Login登入就會開始進行身份確認，請稍後一段時間。</span></div>
+<p><strong><img alt="" height="761" src="/images/1 (1).jpg" width="480"/></strong><img alt="" height="296" src="/images/2 (1).jpg" width="480"/></p>
+<p><span>點選「開始」</span></p>
+<p><img caption="false" height="300" src="/images/3 (1).jpg" width="480"/></p><h1>Game</h1>
