@@ -18,157 +18,158 @@
 <h1>擲骰子遊戲</h1>
 <script type="text/javascript">
 var cwidth = 400;
-    var cheight = 300;
-    var dicex = 50;
-    var dicey = 50;
-    var dicewidth = 100;
-    var diceheight = 100;
-    var dotrad = 6;
-    var ctx;
-    var dx;
-    var dy;
-    var firstturn = true;
-    var point;
+    var cheight = 300;
+    var dicex = 50;
+    var dicey = 50;
+    var dicewidth = 100;
+    var diceheight = 100;
+    var dotrad = 6;
+    var ctx;
+    var dx;
+    var dy;
+    var firstturn = true;
+    var point;
 function throwdice() {
-    var sum;
-    var ch = 1+Math.floor(Math.random()*6);
-    sum = ch;
-    dx = dicex;
-    dy = dicey;
-    drawface(ch);
-    dx = dicex + 150;
-    ch=1 + Math.floor(Math.random()*6);
-    sum += ch;
-    drawface(ch);
-    if (firstturn) {
-        switch(sum) {
-            case 7:
-            case 11:
-              document.f.outcome.value="You win!";
-              break;
-            case 2:
-            case 3:
-            case 12:
-              document.f.outcome.value="You lose!";
-              break;
-            default:
-              point = sum;
-              document.f.pv.value=point;
-              firstturn = false;
-              document.f.stage.value="Need follow-up throw.";
-              document.f.outcome.value="   ";
-        }
-    }
-    else {
-        switch(sum) {
-        case point:
-           document.f.outcome.value="You win!";
-           document.f.stage.value="Back to first throw.";
-           document.f.pv.value=" ";
-           firstturn = true;
-           break;
-        case 7:
-           document.f.outcome.value="You lose!";
-           document.f.stage.value="Back to first throw.";
-           document.f.pv.value=" ";
-           firstturn = true;
-        }
-            }
+    var sum;
+    var ch = 1+Math.floor(Math.random()*6);
+    sum = ch;
+    dx = dicex;
+    dy = dicey;
+    drawface(ch);
+    dx = dicex + 150;
+    ch=1 + Math.floor(Math.random()*6);
+    sum += ch;
+    drawface(ch);
+    if (firstturn) {
+        switch(sum) {
+            case 7:
+            case 11:
+              document.f.outcome.value="You win!";
+              break;
+            case 2:
+            case 3:
+            case 12:
+              document.f.outcome.value="You lose!";
+              break;
+            default:
+              point = sum;
+              document.f.pv.value=point;
+              firstturn = false;
+              document.f.stage.value="Need follow-up throw.";
+              document.f.outcome.value="   ";
+        }
+    }
+    else {
+        switch(sum) {
+        case point:
+           document.f.outcome.value="You win!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+           break;
+        case 7:
+           document.f.outcome.value="You lose!";
+           document.f.stage.value="Back to first throw.";
+           document.f.pv.value=" ";
+           firstturn = true;
+        }
+            }
 }
 function drawface(n) {
-  ctx = document.getElementById('canvas').getContext('2d'); 
-  ctx.lineWidth = 5;
-  ctx.clearRect(dx,dy,dicewidth,diceheight);
-  ctx.strokeRect(dx,dy,dicewidth,diceheight)
-  var dotx;
-  var doty;
-  ctx.fillStyle = "#009966";
-    switch(n) {
-        case 1:
-         draw1();
-         break;
-        case 2:
-         draw2();
-         break;
-        case 3:
-         draw2();
-         draw1();
-         break;
-        case 4:
-         draw4();
-         break;
-        case 5:
-         draw4();
-         draw1();
-         break;
-        case 6:
-         draw4();
-         draw2mid();
-         break;
-         
-    }
+  ctx = document.getElementById('canvas').getContext('2d'); 
+  ctx.lineWidth = 5;
+  ctx.clearRect(dx,dy,dicewidth,diceheight);
+  ctx.strokeRect(dx,dy,dicewidth,diceheight)
+  var dotx;
+  var doty;
+  ctx.fillStyle = "#009966";
+    switch(n) {
+        case 1:
+         draw1();
+         break;
+        case 2:
+         draw2();
+         break;
+        case 3:
+         draw2();
+         draw1();
+         break;
+        case 4:
+         draw4();
+         break;
+        case 5:
+         draw4();
+         draw1();
+         break;
+        case 6:
+         draw4();
+         draw2mid();
+         break;
+         
+    }
 }
 function draw1() {
-    var dotx;
-    var doty;
-    ctx.beginPath();
-    dotx = dx + .5*dicewidth;
-    doty = dy + .5*diceheight;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + .5*dicewidth;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
 }
 function draw2() {
-    var dotx;
-    var doty;
-    ctx.beginPath();
-    dotx = dx + 3*dotrad;
-    doty = dy + 3*dotrad;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    dotx = dx+dicewidth-3*dotrad;
-    doty = dy+diceheight-3*dotrad;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
 }
 function draw4() {
-    var dotx;
-    var doty;
-    ctx.beginPath();
-    dotx = dx + 3*dotrad;
-    doty = dy + 3*dotrad;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    dotx = dx+dicewidth-3*dotrad;
-    doty = dy+diceheight-3*dotrad;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    dotx = dx + 3*dotrad;
-    doty = dy + diceheight-3*dotrad;  //no change
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    dotx = dx+dicewidth-3*dotrad;
-    doty = dy+ 3*dotrad;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+diceheight-3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + diceheight-3*dotrad;  //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy+ 3*dotrad;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
 }
 function draw2mid() {
-    var dotx;
-    var doty;
-    ctx.beginPath();
-    dotx = dx + 3*dotrad;
-    doty = dy + .5*diceheight;
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    dotx = dx+dicewidth-3*dotrad;
-    doty = dy + .5*diceheight; //no change
-    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
+    var dotx;
+    var doty;
+    ctx.beginPath();
+    dotx = dx + 3*dotrad;
+    doty = dy + .5*diceheight;
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    dotx = dx+dicewidth-3*dotrad;
+    doty = dy + .5*diceheight; //no change
+    ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+    ctx.fill();
 }
 </script>
 <p><canvas height="300" id="canvas" width="400"> Your browser doesn't support the HTML5 element canvas. </canvas> <br/> <button onclick="throwdice();">Throw dice </button></p>
-<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form><h1>產生亂數</h1>
+<form id="f" name="f">Stage: <input name="stage" type="text" value="First Throw"/> Point: <input name="pv" type="text" value="   "/> Outcome: <input name="outcome" type="text" value="     "/></form>
+<h1>產生亂數</h1>
 <p><button onclick="myFunction()">哥哥不要啦!~~</button></p>
 <p id="demo"></p>
 <script>
@@ -224,9 +225,9 @@ flag_w = canvas.width
 
 flag_h = canvas.height
 
-circle_x = flag_w/2
+circle_x = flag_w/4
 
-circle_y = flag_h/2
+circle_y = flag_h/4
 
 # 先畫滿地紅
 
@@ -303,6 +304,7 @@ ctx.fillStyle = '#fff'
 ctx.fill()
 </script>
 </p>
+<h3>ROC flag</h3>
 <h2>ROC flag-2</h2>
 <!-- 導入 Brython 標準程式庫 -->
 <p>
@@ -349,9 +351,9 @@ flag_w = canvas.width
 
 flag_h = canvas.height
 
-circle_x = flag_w/4
+circle_x = flag_w/2
 
-circle_y = flag_h/4
+circle_y = flag_h/2
 
 # 先畫滿地紅
 
@@ -477,7 +479,8 @@ ctx.fill()
 <p>剛開始進入它會叫你輸入名稱和密碼,因為使用sudo都需要登入</p>
 <p>如果要關機要打指令<span><span color="#FF0000" style="color: #ff0000;">sudo halt</span><span>  <span color="blue" style="color: blue;">這是關機並沒有關閉電源</span></span></span></p>
 <p><span color="#000000">使用<span><span color="#FF0000" style="color: #ff0000;">sudo shutdown -h now</span>   <span><span color="blue" style="color: blue;">關機並關閉電源</span></span></span></span></p>
-<p><span></span></p><h1>SSL-VPN</h1>
+<p><span></span></p>
+<h1>SSL-VPN</h1>
 <p>到學校電算中心有SSL-VPN服務教學</p>
 <p>參考網址:<a href="https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn">https://nfucc.nfu.edu.tw/zh/download/download-network/ssl-vpn</a></p>
 <ol>
@@ -500,4 +503,5 @@ ctx.fill()
 <div><span>(例:<span><span> 員工編號或學號@ctx10.nfu.edu.tw</span></span>）</span><br/><span>填寫完畢以後按下Login登入就會開始進行身份確認，請稍後一段時間。</span></div>
 <p><strong><img alt="" height="761" src="/images/1 (1).jpg" width="480"/></strong><img alt="" height="296" src="/images/2 (1).jpg" width="480"/></p>
 <p><span>點選「開始」</span></p>
-<p><img caption="false" height="300" src="/images/3 (1).jpg" width="480"/></p><h1>Game</h1>
+<p><img caption="false" height="300" src="/images/3 (1).jpg" width="480"/></p>
+<h1>Game</h1>
