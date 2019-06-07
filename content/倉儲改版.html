@@ -101,6 +101,7 @@ init_mathjax();
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -146,4 +147,57 @@ init_mathjax();
           </div>
           
         </header>
-    </nav><section><h1>Site Map</h1><div id="tipue_search_content"></div><ul><li><a href='簡介.html'>簡介</a><li><a href='week1.html'>week1</a><li><a href='week2.html'>week2</a><li><a href='week3.html'>week3</a><li><a href='期中影片.html'>期中影片</a><li><a href='配置可攜程式環境.html'>配置可攜程式環境</a><li><a href='近端配置與管理.html'>近端配置與管理</a><li><a href='倉儲改版.html'>倉儲改版</a><li><a href='擲骰子遊戲.html'>擲骰子遊戲</a><li><a href='產生亂數.html'>產生亂數</a><li><a href='ROC flag.html'>ROC flag</a><ul><li><a href='ROC flag-2.html'>ROC flag-2</a></li></ul><li><a href='W15.html'>W15</a><ul><li><a href='校園軟體下載.html'>校園軟體下載</a><ul><li><a href='下載教學.html'>下載教學</a></li></ul><li><a href='SSL-VPN.html'>SSL-VPN</a><li><a href='VM 虛擬主機.html'>VM 虛擬主機</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">近端配置與管理 << <a href='近端配置與管理.html'>Previous</a> <a href='擲骰子遊戲.html'>Next</a> >> 擲骰子遊戲<br /><h1>倉儲改版</h1>
+<p><span>建立Git倉儲，並克隆倉儲至近端工作後，對遠端倉儲改版</span><br/><br/><span><span>可攜程式系統中已經內建git，可以在啟動start.bat後，透過路徑的設定，直接執行git指令。</span></span><br/><br/><span><span>建立Git倉儲，共分為兩類，一類是直接在Github網際介面下建立倉儲時，要求建立README.md檔案，之後可以直接在近端，以git clone加上倉儲連線URL，將倉儲克隆一份到近端，並以最新版本作為工作目錄，使用者改版後，可以直接透過git add，commit與push對遠端倉儲改版。</span></span><br/><br/><span><span>另一類則是故意在Github網際介面下建立倉儲時，不要建立任何檔案，而是在近端自行利用git指令建立倉儲架構，新增內容後，以git remote add設法在近端倉儲中納入起源URL後，將近端倉儲版本新增提交推送到遠端。</span></span><br/><br/><span><span>git add</span></span></p>
+<p><img alt="" height="74" src="./../images/cmd_fL1T2yK2BO.png" width="480"/></p>
+<p><span>git add可以用來新增一個檔案，數個檔案，或在之前提交後所新增的所有內容。</span><br/><br/><span><span>git add在GIT架構下，是對所新增或修改的內容拍快照：</span></span><br/><br/><span><span>git add。</span><span>將當前目錄和所有子目錄中的所有已修改和新（未跟踪）文件添加到暫存區域（也稱為索引），從而使它們準備好包含在下一個git提交中。</span><span>git add<span> </span></span></span><br/><br/><span><span>git commit<span> </span></span><span>將忽略與.gitignore文件中的模式匹配的任何文件</span></span><span> </span></p>
+<p><img alt="" height="67" src="./../images/cmd_mkeF6CSYau.png" width="480"/></p>
+<p><span>git commit執行之前，必須使用git config建立臨時或永久的身分註記，因為GIT在展開所有改版內容時，必須明確登錄這些變更的作者與時間。</span><br/><br/><span><span>當使用者採用git commit -m“改版說明訊息”，此次提交到.git目錄下的更動內容，均會綁定使用者身分與改版所輸入的說明訊息。</span></span><br/><br/><span><span>git push<span> </span></span></span></p>
+<p><img alt="" height="145" src="./../images/cmd_ypR5iFks9x.png" width="480"/></p>
+<p><span>git push在隨後沒有輸入遠端URL代號時，表示要推送到origin，若透過git remote add設定其他代號與URL對應時，git push加上代號，就可以將此次的提交內容，推送到指定的URL所在遠端倉儲。</span></p>
+<p><span><span><span>靜態CMSimfly</span></span></span></p>
+<p><span><span>利用CMSimfly（https://github.com/chiamingyen/cmsimfly）內容，建立自己的Github Pages網站</span></span></p>
+<p><span><span><span>設法利用<a href="http://mde.tw/wcm2019/content/%E5%AF%A6%E7%BF%92%E9%A0%85%E7%9B%AE%E4%B8%89.html">HTML5 CSS與Javascript</a>，納入與機械設計相關的靜態網頁內容</span><span> </span></span></span></p>
+<br />近端配置與管理 << <a href='近端配置與管理.html'>Previous</a> <a href='擲骰子遊戲.html'>Next</a> >> 擲骰子遊戲</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../static/chimper/js/jquery-ui.js"></script>
+            <script src="../static/chimper/js/popper.min.js"></script>
+            <script src="../static/chimper/js/bootstrap.min.js"></script>
+            <script src="../static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../static/chimper/js/main.js"></script>
+        </body></html>
+        
